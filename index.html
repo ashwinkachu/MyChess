@@ -1,0 +1,224 @@
+<html>
+<head>
+<title>Ashwin-Chess</title>
+<script src="jquery.js" type="text/javascript"> </script>
+<script src="validmoves.js" type="text/javascript"> </script>
+
+<!--<script type="text/javascript" language="javascript" src="function.js"> </script> -->
+<style>
+html, body {margin: 0; height: 100%; overflow: hidden}
+#graveyard1
+{
+
+    position: relative;
+    left:700px;
+    top:-620px;
+    right:1100;
+    border: 3px solid lightblue;
+    height:200px;
+    width:50%;
+    font-size: 50px;
+}
+#graveyard2
+{
+
+    position: relative;
+    left:700px;
+    top:-400px;
+    right:1100;
+    border: 3px solid lightblue;
+    height:200px;
+    width:50%;
+    font-size: 50px;
+}
+table
+{
+	cursor:default;
+
+
+}
+td
+{
+  height:67px;
+  width:67px;
+
+}
+#alphabets
+{
+	text-align: bottom;
+	height:10px;
+	color: #cc0000;
+  width:67px;
+  vertical-align: bottom;
+}
+.numbers
+{
+	text-align: right;
+	color: #cc0000;
+  background-color: lightblue;
+
+}
+
+.bp
+{
+	
+	text-align: center;
+	font-size: 55px;
+  border: 3px solid #ffffc3;
+}
+
+.highlight
+{
+  text-align: center;
+  font-size: 50px;
+  border: 3px solid #ff0080;
+
+}
+.highlight_special
+{
+  text-align: center;
+  font-size: 50px;
+  border: 3px solid #9933ff;
+}
+</style>
+</head>
+<script>
+  
+  </script>
+<body bgcolor="lightblue">
+<table cellspacing="0">
+  <tr id="alphabets"> 
+  <td></td>
+  <td><center>A</center></td>
+  <td><center>B</center></td>
+  <td><center>C</center></td>
+  <td><center>D</center></td>
+  <td><center>E</center></td>
+  <td><center>F</center></td>
+  <td><center>G</center></td>
+  <td><center>H</center></td>
+  </tr>
+</table>
+<table id="maintable" cellspacing="0">
+  <tr>
+    <td class="numbers">1</td>
+    <td class="bp" name="a1" id="blackrookl">&#9820;</td>
+    <td class="bp" name="b1" id="blackknightl">&#9822;</td>
+    <td class="bp" name="c1" id="blackbishopl">&#9821;</td>
+    <td class="bp" name="d1" id="blackqueen">&#9819;</td>
+    <td class="bp" name="e1" id="blackking">&#9818;</td>
+    <td class="bp" name="f1" id="blackbishopr">&#9821;</td>
+    <td class="bp" name="g1" id="blackknightr">&#9822;</td>
+    <td class="bp" name="h1" id="blackrookr">&#9820;</td>
+  </tr>
+  <tr>
+  <td class="numbers">2</td>
+    <td class="bp" name="a2" id="blackpawn1">&#9823;</td>
+    <td class="bp" name="b2" id="blackpawn2">&#9823;</td>
+    <td class="bp" name="c2" id="blackpawn3">&#9823;</td>
+    <td class="bp" name="d2" id="blackpawn4">&#9823;</td>
+    <td class="bp" name="e2" id="blackpawn5">&#9823;</td>
+    <td class="bp" name="f2" id="blackpawn6">&#9823;</td>
+    <td class="bp" name="g2" id="blackpawn7">&#9823;</td>
+    <td class="bp" name="h2" id="blackpawn8">&#9823;</td>
+  </tr>
+  <tr>
+  <td class="numbers">3</td>
+    <td class="bp" name="a3" id=""></td>
+    <td class="bp" name="b3" id=""></td>
+    <td class="bp" name="c3" id=""></td>
+    <td class="bp" name="d3" id=""></td>
+    <td class="bp" name="e3" id=""></td>
+    <td class="bp" name="f3" id=""></td>
+    <td class="bp" name="g3" id=""></td>
+    <td class="bp" name="h3" id=""></td>
+  </tr>
+  <tr>
+  <td class="numbers">4</td>
+    <td class="bp" name="a4" id=""></td>
+    <td class="bp" name="b4" id=""></td>
+    <td class="bp" name="c4" id=""></td>
+    <td class="bp" name="d4" id=""></td>
+    <td class="bp" name="e4" id=""></td>
+    <td class="bp" name="f4" id=""></td>
+    <td class="bp" name="g4" id=""></td>
+    <td class="bp" name="h4" id=""></td>
+  </tr>
+  <tr>
+  <td class="numbers">5</td>
+    <td class="bp" name="a5" id=""></td>
+    <td class="bp" name="b5" id=""></td>
+    <td class="bp" name="c5" id=""></td>
+    <td class="bp" name="d5" id=""></td>
+    <td class="bp" name="e5" id=""></td>
+    <td class="bp" name="f5" id=""></td>
+    <td class="bp" name="g5" id=""></td>
+    <td class="bp" name="h5" id=""></td>
+  </tr>
+  <tr>
+  <td class="numbers">6</td>
+    <td class="bp" name="a6" id=""></td>
+    <td class="bp" name="b6" id=""></td>
+    <td class="bp" name="c6" id=""></td>
+    <td class="bp" name="d6" id=""></td>
+    <td class="bp" name="e6" id=""></td>
+    <td class="bp" name="f6" id=""></td>
+    <td class="bp" name="g6" id=""></td>
+    <td class="bp" name="h6" id=""></td>
+  </tr>
+  <tr>
+  <td class="numbers">7</td>
+    <td class="bp" name="a7" id="whitepawn1">&#9817;</td>
+    <td class="bp" name="b7" id="whitepawn2">&#9817;</td>
+    <td class="bp" name="c7" id="whitepawn3">&#9817;</td>
+    <td class="bp" name="d7" id="whitepawn4">&#9817;</td>
+    <td class="bp" name="e7" id="whitepawn5">&#9817;</td>
+    <td class="bp" name="f7" id="whitepawn6">&#9817;</td>
+    <td class="bp" name="g7" id="whitepawn7">&#9817;</td>
+    <td class="bp" name="h7" id="whitepawn8">&#9817;</td>
+  </tr>
+  <tr>
+  <td class="numbers">8</td>
+    <td class="bp" name="a8" id="whiterookl">&#9814;</td>
+    <td class="bp" name="b8" id="whiteknightl">&#9816;</td>
+    <td class="bp" name="c8" id="whitebishopl">&#9815;</td>
+    <td class="bp" name="d8" id="whitequeen">&#9813;</td>
+    <td class="bp" name="e8" id="whiteking">&#9812;</td>
+    <td class="bp" name="f8" id="whitebishopr">&#9815;</td>
+    <td class="bp" name="g8" id="whiteknightr">&#9816;</td>
+    <td class="bp" name="h8" id="whiterookr">&#9814;</td>
+  </tr>
+
+  
+</table>
+<div id="graveyard1"> </div>
+<div id="graveyard2"> </div>
+</body>
+<script>
+  
+
+$(document).ready(function()
+  {
+           
+           $("#maintable td:even").css("background-color", "#ffcc99");
+            $("#maintable td:odd").css("background-color", "#ffffff");
+            $(".numbers").css("background-color","lightblue");
+            
+
+ $("td").click(function()
+ { 
+    var prop_id=$(this).attr('id');
+    var prop_class=$(this).attr('class');
+    var prop_name=$(this).attr('name');
+    var content=document.getElementsByName(prop_name)[0].textContent;
+   
+   // alert("ID="+prop_id+"  class="+prop_class+" name="+prop_name+" content="+content);
+    
+    var boxname = $(this).attr('name');
+    var coinname=$(this).attr('id');
+    mouseclicked(prop_class,prop_name,prop_id);
+
+  });
+});
+</script>
+</html>
